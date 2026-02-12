@@ -32,17 +32,11 @@ public class LabRunner {
         // add Connor to the tree
         insertIntoBSTAndPrintResults(bst, new Person(666666666, "Connor"));
 
-        // add duplicate to tree
-        insertIntoBSTAndPrintResults(bst, new Person(666666666, "Ningyun"));
-
         // find the person with NUID 111111111
         searchInBSTAndPrintResults(bst, 111111111);
 
         // find the person with NUID 555555555
         searchInBSTAndPrintResults(bst, 555555555);
-
-        // find the person with NUID 444444444
-        searchInBSTAndPrintResults(bst, 444444444);
 
         // delete the person with NUID 555555555
         deleteFromBSTAndPrintResults(bst, 555555555);
@@ -60,9 +54,6 @@ public class LabRunner {
         deleteFromBSTAndPrintResults(bst, 777777777);
 
         // delete the person with NUID 666666666
-        deleteFromBSTAndPrintResults(bst, 666666666);
-
-        // delete the person with NUID 666666666 who doesn't exist
         deleteFromBSTAndPrintResults(bst, 666666666);
 
     }
@@ -91,11 +82,6 @@ public class LabRunner {
     private static void searchInBSTAndPrintResults(BinarySearchTree bst, int key) {
         // find the person with NUID key
         Person found = bst.search(key);
-        if (found == null) {
-            System.out.println("Could not find a person with the NUID " + key + ".");
-            System.out.println(bst);
-            return;
-        }
         // print the results
         System.out.println("Found the person with NUID " + key + ": ");
         System.out.println("  " + found);
@@ -111,13 +97,6 @@ public class LabRunner {
     private static void deleteFromBSTAndPrintResults(BinarySearchTree bst, int key) {
         // delete the person with NUID key
         Person deleted = bst.delete(key);
-
-        if (deleted == null) {
-            System.out.println("Could not find a person to delete with the NUID " + key + ".");
-            System.out.println(bst);
-            return;
-        }
-
         // print the results
         System.out.println("Deleted the person with NUID " + key + ": ");
         System.out.println(" " + deleted);

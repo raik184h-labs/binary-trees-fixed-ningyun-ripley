@@ -10,24 +10,20 @@ public class Person implements Comparable<Person> {
     /**
      * Person constructor.
      * 
-     * @param nuid NUID
+     * @param NUID NUID
      * @param name name
      */
-    Person(int nuid, String name) {
-        this.key = nuid;
+    Person(int NUID, String name) {
+        this.key = NUID;
         this.name = name;
     }
 
-    /**
-     * To string method.
-     */
+    // TODO: ADD JAVADOC COMMENT
     public String toString() {
         return "NUID: " + this.key + "  Name: " + this.name;
     }
 
-    /**
-     * Compare to method.
-     */
+    // TODO: ADD JAVADOC COMMENT
     public int compareTo(Person other) {
         return Integer.compare(this.key, other.key);
     }

@@ -140,12 +140,9 @@ class BinarySearchNode {
     public String toString() {
         String toReturn = "";
         if (this.leftChild != null) {
-            toReturn += this.leftChild.toString();
+
         }
         toReturn += "  " + this.person.toString() + "\n";
-        if (this.rightChild != null) {
-            toReturn += this.rightChild.toString();
-        }
         return toReturn;
     }
 

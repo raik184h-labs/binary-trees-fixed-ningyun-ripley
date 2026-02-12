@@ -1,42 +1,36 @@
 package edu.unl.raikes.BinarySearchTreeLab;
 
-/**
- * Binary Search Tree class.
- */
+//TODO: ADD JAVADOC COMMENT
 public class BinarySearchTree {
     boolean verbose = true;
     private BinarySearchNode root = null;
     private int size = 0;
 
-    /**
-     * Insert a person.
-     * 
-     * @param data The person
-     */
+    // TODO: ADD JAVADOC COMMENT
     public void insert(Person data) {
         boolean inserted = false;
+        // TODO: ADD COMMENT
         if (this.root == null) {
             this.root = new BinarySearchNode(data);
             inserted = true;
-        } else {
+        } // TODO: ADD COMMENT
+        else {
             inserted = this.root.insert(data);
-        }
+        } // TODO: ADD COMMENT
         if (inserted) {
             this.size++;
         }
     }
 
-    /**
-     * Find a person with a given key.
-     * 
-     * @param  key The key of the person to find.
-     * @return     The person with the given key, null if they don't exist
-     */
+    // TODO: ADD JAVADOC COMMENT
     public Person search(int key) {
+        // TODO: ADD COMMENT
         if (this.root == null) {
             return null;
         }
+        // TODO: ADD COMMENT
         BinarySearchNode found = this.root.search(key);
+        // TODO: ADD COMMENT
         if (found != null) {
             return found.person;
         } else {
@@ -45,12 +39,7 @@ public class BinarySearchTree {
 
     }
 
-    /**
-     * Delete a person with a given key.
-     * 
-     * @param  key The key
-     * @return     The person deleted, null if they don't exist
-     */
+    // TODO: ADD JAVADOC COMMENT
     public Person delete(int key) {
         Person deleted = null;
 
@@ -65,9 +54,8 @@ public class BinarySearchTree {
                 deleted = this.root.delete(key);
                 // retrieve the root from the fake root (in case it changed)
                 this.root = auxRoot.leftChild;
-                if (this.root != null) {
+                if (this.root != null)
                     this.root.parent = null;
-                }
             } else {
                 deleted = this.root.delete(key);
             }

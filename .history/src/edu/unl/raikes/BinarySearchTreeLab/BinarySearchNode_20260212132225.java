@@ -81,15 +81,21 @@ class BinarySearchNode {
             } else if (node.parent.rightChild == node) {
                 node.parent.setRightChild(null);
             }
-        } else if (node.leftChild != null && node.rightChild != null) {
+        }
+        // TODO: ADD COMMENT
+        else if (node.leftChild != null && node.rightChild != null) {
             BinarySearchNode min = node.rightChild.getNodeWithMinValue();
             node.person = min.person;
             int minKey = min.person.key;
             min.delete(minKey);
-        } else if (node.parent.leftChild == node) {
+        }
+        // TODO: ADD COMMENT
+        else if (node.parent.leftChild == node) {
             BinarySearchNode newLeftChild = (node.leftChild != null) ? node.leftChild : node.rightChild;
             node.parent.setLeftChild(newLeftChild);
-        } else if (node.parent.rightChild == node) {
+        }
+        // TODO: ADD COMMENT
+        else if (node.parent.rightChild == node) {
             BinarySearchNode newRightChild = (node.leftChild != null) ? node.leftChild : node.rightChild;
             node.parent.setRightChild(newRightChild);
         }
@@ -97,24 +103,15 @@ class BinarySearchNode {
         return deleted;
     }
 
-    /**
-     * Get the node with the minimum value.
-     * 
-     * @return The node of the minimum value
-     */
+    // TODO: ADD JAVADOC COMMENT
     BinarySearchNode getNodeWithMinValue() {
-        if (this.leftChild == null) {
+        if (leftChild == null)
             return this;
-        } else {
-            return this.leftChild.getNodeWithMinValue();
-        }
+        else
+            return leftChild.getNodeWithMinValue();
     }
 
-    /**
-     * Set the left child.
-     * 
-     * @param child The child
-     */
+    // TODO: ADD JAVADOC COMMENT
     void setLeftChild(BinarySearchNode child) {
         this.leftChild = child;
         if (child != null) {
@@ -122,11 +119,7 @@ class BinarySearchNode {
         }
     }
 
-    /**
-     * Set the right child.
-     * 
-     * @param child the right child
-     */
+    // TODO: ADD JAVADOC COMMENT
     void setRightChild(BinarySearchNode child) {
         this.rightChild = child;
         if (child != null) {
@@ -134,18 +127,13 @@ class BinarySearchNode {
         }
     }
 
-    /**
-     * To string method.
-     */
+    // TODO: ADD JAVADOC COMMENT (WHAT KIND OF SEARCH SHOULD THIS BE???)
     public String toString() {
         String toReturn = "";
-        if (this.leftChild != null) {
-            toReturn += this.leftChild.toString();
-        }
+
+        // TODO: ADD COMMENT
         toReturn += "  " + this.person.toString() + "\n";
-        if (this.rightChild != null) {
-            toReturn += this.rightChild.toString();
-        }
+
         return toReturn;
     }
 

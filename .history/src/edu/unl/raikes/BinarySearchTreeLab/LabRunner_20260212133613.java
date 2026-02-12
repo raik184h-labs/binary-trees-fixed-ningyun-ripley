@@ -62,9 +62,6 @@ public class LabRunner {
         // delete the person with NUID 666666666
         deleteFromBSTAndPrintResults(bst, 666666666);
 
-        // delete the person with NUID 666666666 who doesn't exist
-        deleteFromBSTAndPrintResults(bst, 666666666);
-
     }
 
     /**
@@ -92,9 +89,7 @@ public class LabRunner {
         // find the person with NUID key
         Person found = bst.search(key);
         if (found == null) {
-            System.out.println("Could not find a person with the NUID " + key + ".");
-            System.out.println(bst);
-            return;
+            System.out.println("Could not find a person with the NUID" + key + ".");
         }
         // print the results
         System.out.println("Found the person with NUID " + key + ": ");
@@ -111,13 +106,6 @@ public class LabRunner {
     private static void deleteFromBSTAndPrintResults(BinarySearchTree bst, int key) {
         // delete the person with NUID key
         Person deleted = bst.delete(key);
-
-        if (deleted == null) {
-            System.out.println("Could not find a person to delete with the NUID " + key + ".");
-            System.out.println(bst);
-            return;
-        }
-
         // print the results
         System.out.println("Deleted the person with NUID " + key + ": ");
         System.out.println(" " + deleted);

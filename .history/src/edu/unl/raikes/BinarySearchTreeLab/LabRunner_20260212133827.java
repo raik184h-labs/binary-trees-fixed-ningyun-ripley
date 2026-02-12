@@ -113,7 +113,7 @@ public class LabRunner {
         Person deleted = bst.delete(key);
 
         if (deleted == null) {
-            System.out.println("Could not find a person to delete with the NUID " + key + ".");
+            System.out.println("Could not find a person to delete with the NUID" + key + ".");
             System.out.println(bst);
             return;
         }

@@ -134,18 +134,13 @@ class BinarySearchNode {
         }
     }
 
-    /**
-     * To string method.
-     */
+    // TODO: ADD JAVADOC COMMENT (WHAT KIND OF SEARCH SHOULD THIS BE???)
     public String toString() {
         String toReturn = "";
-        if (this.leftChild != null) {
-            toReturn += this.leftChild.toString();
-        }
+
+        // TODO: ADD COMMENT
         toReturn += "  " + this.person.toString() + "\n";
-        if (this.rightChild != null) {
-            toReturn += this.rightChild.toString();
-        }
+
         return toReturn;
     }
 

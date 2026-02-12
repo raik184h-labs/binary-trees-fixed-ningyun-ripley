@@ -1,95 +1,99 @@
 package edu.unl.raikes.BinarySearchTreeLab;
 
-/**
- * Binary Search Node class.
- */
+// TODO: ADD JAVADOC COMMENT 
 class BinarySearchNode {
     protected BinarySearchNode parent;
     protected BinarySearchNode leftChild;
     protected BinarySearchNode rightChild;
     protected Person person;
 
-    /**
-     * Person constructor.
-     * 
-     * @param person Person
-     */
+    // TODO: ADD JAVADOC COMMENT
     BinarySearchNode(Person person) {
         this.person = person;
     }
 
-    /**
-     * Insert a person.
-     * 
-     * @param  data The person
-     * @return      false if the person was already in the tree
-     */
+    // TODO: ADD JAVADOC COMMENT
     boolean insert(Person data) {
+        // TODO: ADD COMMENT
         if (data == this.person) {
             return false;
-        } else if (Integer.compare(data.key, this.person.key) < 0) {
+        }
+        // TODO: ADD COMMENT
+        else if (Integer.compare(data.key, this.person.key) < 0) {
+            // TODO: ADD COMMENT
             if (this.leftChild == null) {
                 this.setLeftChild(new BinarySearchNode(data));
                 return true;
-            } else {
+            } // TODO: ADD COMMENT
+            else {
                 return this.leftChild.insert(data);
             }
-        } else if (Integer.compare(data.key, this.person.key) > 0) {
+        }
+        // TODO: ADD COMMENT
+        else if (Integer.compare(data.key, this.person.key) > 0) {
+            // TODO: ADD COMMENT
             if (this.rightChild == null) {
                 this.setRightChild(new BinarySearchNode(data));
                 return true;
-            } else {
+            } // TODO: ADD COMMENT
+            else {
                 return this.rightChild.insert(data);
             }
         }
         return false;
     }
 
-    /**
-     * Search for a given key.
-     * 
-     * @param  key The key to search for
-     * @return     The node with the key
-     */
+    // TODO: ADD JAVADOC COMMENT
     BinarySearchNode search(int key) {
+        // TODO: ADD COMMENT
         if (this.leftChild != null && Integer.compare(key, this.person.key) < 0) {
             return this.leftChild.search(key);
-        } else if (this.rightChild != null && Integer.compare(key, this.person.key) > 0) {
+        }
+        // TODO: ADD COMMENT
+        else if (this.rightChild != null && Integer.compare(key, this.person.key) > 0) {
             return this.rightChild.search(key);
-        } else if (this.person.key == key) {
+        }
+        // TODO: ADD COMMENT
+        else if (this.person.key == key) {
             return this;
-        } else {
+        }
+        // TODO: ADD COMMENT
+        else {
             return null;
         }
     }
 
-    /**
-     * Delete the node with the given key.
-     * 
-     * @param  key The key to delete
-     * @return     The person deleted, null if they don't exist
-     */
+    // TODO: ADD JAVADOC COMMENT
     Person delete(int key) {
+        // TODO: ADD COMMENT
         BinarySearchNode node = this.search(key);
         if (node == null) {
             return null;
         }
         Person deleted = node.person;
+
+        // TODO: ADD COMMENT
         if (node.leftChild == null && node.rightChild == null) {
             if (node.parent.leftChild == node) {
                 node.parent.setLeftChild(null);
             } else if (node.parent.rightChild == node) {
                 node.parent.setRightChild(null);
             }
-        } else if (node.leftChild != null && node.rightChild != null) {
+        }
+        // TODO: ADD COMMENT
+        else if (node.leftChild != null && node.rightChild != null) {
             BinarySearchNode min = node.rightChild.getNodeWithMinValue();
             node.person = min.person;
             int minKey = min.person.key;
             min.delete(minKey);
-        } else if (node.parent.leftChild == node) {
+        }
+        // TODO: ADD COMMENT
+        else if (node.parent.leftChild == node) {
             BinarySearchNode newLeftChild = (node.leftChild != null) ? node.leftChild : node.rightChild;
             node.parent.setLeftChild(newLeftChild);
-        } else if (node.parent.rightChild == node) {
+        }
+        // TODO: ADD COMMENT
+        else if (node.parent.rightChild == node) {
             BinarySearchNode newRightChild = (node.leftChild != null) ? node.leftChild : node.rightChild;
             node.parent.setRightChild(newRightChild);
         }
@@ -97,24 +101,15 @@ class BinarySearchNode {
         return deleted;
     }
 
-    /**
-     * Get the node with the minimum value.
-     * 
-     * @return The node of the minimum value
-     */
+    // TODO: ADD JAVADOC COMMENT
     BinarySearchNode getNodeWithMinValue() {
-        if (this.leftChild == null) {
+        if (leftChild == null)
             return this;
-        } else {
-            return this.leftChild.getNodeWithMinValue();
-        }
+        else
+            return leftChild.getNodeWithMinValue();
     }
 
-    /**
-     * Set the left child.
-     * 
-     * @param child The child
-     */
+    // TODO: ADD JAVADOC COMMENT
     void setLeftChild(BinarySearchNode child) {
         this.leftChild = child;
         if (child != null) {
@@ -122,11 +117,7 @@ class BinarySearchNode {
         }
     }
 
-    /**
-     * Set the right child.
-     * 
-     * @param child the right child
-     */
+    // TODO: ADD JAVADOC COMMENT
     void setRightChild(BinarySearchNode child) {
         this.rightChild = child;
         if (child != null) {
@@ -134,18 +125,13 @@ class BinarySearchNode {
         }
     }
 
-    /**
-     * To string method.
-     */
+    // TODO: ADD JAVADOC COMMENT (WHAT KIND OF SEARCH SHOULD THIS BE???)
     public String toString() {
         String toReturn = "";
-        if (this.leftChild != null) {
-            toReturn += this.leftChild.toString();
-        }
+
+        // TODO: ADD COMMENT
         toReturn += "  " + this.person.toString() + "\n";
-        if (this.rightChild != null) {
-            toReturn += this.rightChild.toString();
-        }
+
         return toReturn;
     }
 

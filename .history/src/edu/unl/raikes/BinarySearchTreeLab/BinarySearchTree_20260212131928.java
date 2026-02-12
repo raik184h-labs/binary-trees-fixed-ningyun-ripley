@@ -1,8 +1,6 @@
 package edu.unl.raikes.BinarySearchTreeLab;
 
-/**
- * Binary Search Tree class.
- */
+//TODO: ADD JAVADOC COMMENT
 public class BinarySearchTree {
     boolean verbose = true;
     private BinarySearchNode root = null;

@@ -84,7 +84,13 @@ public class BinarySearchTree {
     public String toString() {
         String toReturn = "Binary Search Tree of Size: " + this.size + "\n";
         if (this.root != null) {
+            if (this.root.leftChild != null) {
+                toReturn += this.root.leftChild.toString();
+            }
             toReturn += this.root.toString();
+            if (this.root.leftChild != null) {
+                toReturn += this.root.leftChild.toString();
+            }
         }
         return toReturn;
     }
